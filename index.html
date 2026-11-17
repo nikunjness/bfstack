@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BF/AI — Black Friday Deals for the AI Stack</title>
+  <meta name="description" content="Black Friday and Cyber Monday deals for AI tools, software, APIs, cloud compute and local AI hardware — filtered by how you actually pay: lifetime, annual, credits or BYOK." />
+  <meta name="theme-color" content="#0a0a0f" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="BF/AI — Black Friday Deals for the AI Stack" />
+  <meta property="og:description" content="Every AI deal in one place. Filter by lifetime, annual, compute credits or BYOK." />
+  <meta property="og:url" content="https://bfstack.vercel.app" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c8ff4d'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='900' text-anchor='middle' fill='%230a0a0f'%3EBF%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "BF/AI — Black Friday Deals for the AI Stack",
+    "url": "https://bfstack.vercel.app",
+    "description": "Black Friday and Cyber Monday deals for AI tools, software, APIs, cloud compute and local AI hardware.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://bfstack.vercel.app/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="demo-bar" role="note">
+    <span class="demo-bar__dot"></span>
+    <strong>Demo build.</strong> Deal prices below are illustrative sample data — not verified live offers. Swap in sourced deals via <code>deals.js</code> before launch.
+  </div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="BF/AI home">
+        <span class="brand__mark">BF<span>/</span>AI</span>
+        <span class="brand__sub">the AI stack sale</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#deals">Deals</a>
+        <a href="#method">How we source</a>
+        <a href="#submit">Submit a deal</a>
+      </nav>
+      <a class="header-cta" href="#submit">Submit a deal <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="wrap hero__inner">
+        <div class="hero__copy">
+          <div class="eyebrow"><span class="eyebrow__pulse"></span> BFCM 2026 · AI EDITION</div>
+          <h1>Black Friday for<br /><em>the AI stack.</em></h1>
+          <p class="hero__lede">Tools, APIs, compute and hardware — sorted by <strong>how you pay</strong>, not just what they do. Lifetime, annual, credits or BYOK.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#deals">Browse all deals <span aria-hidden="true">↓</span></a>
+            <a class="btn btn--ghost" href="#method">See the sourcing method</a>
+          </div>
+        </div>
+        <aside class="countdown" aria-label="Countdown to Black Friday">
+          <div class="countdown__label">Black Friday 2026 starts in</div>
+          <div class="countdown__grid" id="countdown">
+            <div class="countdown__cell"><span id="cd-days">--</span><small>days</small></div>
+            <div class="countdown__sep">:</div>
+            <div class="countdown__cell"><span id="cd-hours">--</span><small>hrs</small></div>
+            <div class="countdown__sep">:</div>
+            <div class="countdown__cell"><span id="cd-mins">--</span><small>min</small></div>
+            <div class="countdown__sep">:</div>
+            <div class="countdown__cell"><span id="cd-secs">--</span><small>sec</small></div>
+          </div>
+          <div class="countdown__foot">Fri 27 Nov → Mon 30 Nov 2026</div>
+        </aside>
+      </div>
+      <div class="wrap ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <span>LIFETIME DEALS</span><b>✦</b><span>ANNUAL DISCOUNTS</span><b>✦</b><span>FREE API CREDITS</span><b>✦</b><span>BYOK TOOLS</span><b>✦</b><span>GPU CLOUD</span><b>✦</b><span>LOCAL AI HARDWARE</span><b>✦</b>
+          <span>LIFETIME DEALS</span><b>✦</b><span>ANNUAL DISCOUNTS</span><b>✦</b><span>FREE API CREDITS</span><b>✦</b><span>BYOK TOOLS</span><b>✦</b><span>GPU CLOUD</span><b>✦</b><span>LOCAL AI HARDWARE</span><b>✦</b>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap stats" aria-label="Site statistics">
+      <div class="stat"><strong id="stat-deals">—</strong><span>deals tracked</span></div>
+      <div class="stat"><strong id="stat-avg">—</strong><span>average discount</span></div>
+      <div class="stat"><strong id="stat-sources">—</strong><span>sourcing channels</span></div>
+      <div class="stat"><strong>4</strong><span>ways to pay</span></div>
+    </section>
+
+    <section class="wrap deals-section" id="deals">
+      <div class="section-head">
+        <div>
+          <div class="kicker">01 / THE BOARD</div>
+          <h2>Every deal, one grid.</h2>
+          <p>Start with how you want to pay. Then narrow by category.</p>
+        </div>
+        <div class="result-count" id="result-count" aria-live="polite">— deals</div>
+      </div>
+
+      <div class="filters">
+        <div class="searchbox">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <input type="search" id="search" placeholder="Search tools, vendors, sources…" autocomplete="off" aria-label="Search deals" />
+          <button class="searchbox__clear" id="clear-search" type="button" aria-label="Clear search" hidden>×</button>
+        </div>
+        <div class="filter-row">
+          <div class="filter-group">
+            <span class="filter-label">Pricing model</span>
+            <div class="pills" id="model-filters" role="group" aria-label="Filter by pricing model"></div>
+          </div>
+          <div class="filter-group">
+            <span class="filter-label">Category</span>
+            <div class="pills" id="category-filters" role="group" aria-label="Filter by category"></div>
+          </div>
+          <div class="filter-group filter-group--sort">
+            <label class="filter-label" for="sort">Sort</label>
+            <select id="sort" aria-label="Sort deals">
+              <option value="featured">Featured</option>
+              <option value="discount">Biggest discount</option>
+              <option value="price-low">Price: low to high</option>
+              <option value="price-high">Price: high to low</option>
+              <option value="name">Name A–Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="deal-grid" id="deal-grid"></div>
+      <div class="empty" id="empty" hidden>
+        <div class="empty__icon">⌕</div>
+        <h3>No deals match those filters.</h3>
+        <p>Try a different pricing model or clear your search.</p>
+        <button class="btn btn--primary" id="reset-filters" type="button">Reset filters</button>
+      </div>
+    </section>
+
+    <section class="method" id="method">
+      <div class="wrap">
+        <div class="section-head section-head--light">
+          <div>
+            <div class="kicker">02 / THE PIPELINE</div>
+            <h2>Where the deals come from.</h2>
+            <p>AI founders don't buy department-store ads. They post where builders already are.</p>
+          </div>
+        </div>
+        <div class="method-grid">
+          <article class="method-card"><span class="method-card__num">01</span><h3>Open-source lists</h3><p>Community-maintained, pull-request-verified markdown lists on GitHub — parsed directly, refreshed daily.</p><span class="method-card__tag">GitHub · PR-verified</span></article>
+          <article class="method-card"><span class="method-card__num">02</span><h3>Lifetime marketplaces</h3><p>AppSumo, StackSocial, DealMirror and PitchGround — where AI wrappers and SEO agents launch LTDs.</p><span class="method-card__tag">AppSumo · StackSocial</span></article>
+          <article class="method-card"><span class="method-card__num">03</span><h3>AI directories</h3><p>TAAFT, Product Hunt, Futurepedia and Toolify — seasonal tags plus founder codes buried in top comments.</p><span class="method-card__tag">Product Hunt · TAAFT</span></article>
+          <article class="method-card"><span class="method-card__num">04</span><h3>SaaS affiliate networks</h3><p>PartnerStack, Rewardful, FirstPromoter, Lemon Squeezy and Gumroad marketplaces — active codes, one feed.</p><span class="method-card__tag">PartnerStack · Rewardful</span></article>
+          <article class="method-card"><span class="method-card__num">05</span><h3>Cloud + hardware</h3><p>RunPod, Lambda, Vast.ai and Hugging Face credits; RTX and high-RAM Mac workstations for local LLMs.</p><span class="method-card__tag">Compute · Local AI</span></article>
+          <article class="method-card"><span class="method-card__num">06</span><h3>Social listening</h3><p>#BlackFridayAI and #buildinpublic on X; r/LocalLLaMA, r/SaaS and r/appsumo via RSS keyword alerts.</p><span class="method-card__tag">X · Reddit</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="submit" id="submit">
+      <div class="wrap submit__inner">
+        <div>
+          <div class="kicker kicker--dark">03 / OPEN SUBMISSIONS</div>
+          <h2>Founding a tool? Get listed.</h2>
+          <p>Drop your deal in the repo — one row in <code>deals.js</code>, one pull request. No gatekeeper, no pay-to-play.</p>
+        </div>
+        <a class="btn btn--dark" id="submit-btn" href="https://github.com/themacmarketer/bfstack" target="_blank" rel="noopener">Open the repo <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand"><span class="brand__mark">BF<span>/</span>AI</span><p>Deals for people who build with AI.</p></div>
+      <div class="footer-links"><a href="#deals">Deals</a><a href="#method">Method</a><a href="https://github.com/themacmarketer/bfstack" target="_blank" rel="noopener">GitHub</a></div>
+    </div>
+    <div class="wrap footer-legal">
+      <p><strong>Disclosure:</strong> This is a demo build. All prices shown are illustrative sample data, not verified live offers. Always confirm the final price on the vendor's own site. Affiliate links may be present in a future version.</p>
+      <p>BF/AI · 2026</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="deals.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
