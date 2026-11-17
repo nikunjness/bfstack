@@ -4,6 +4,8 @@ A zero-build static deal aggregator for AI tools, software, APIs, compute and ha
 
 Every card carries a source link and a check date. Live data was researched 15–17 November 2026, ahead of Black Friday (27 Nov) and Cyber Monday (30 Nov).
 
+**Theme:** light by default, with a header toggle to dark. The choice persists in `localStorage` under `bfai-theme` and is applied by an inline head script before paint. AppSumo deals come from the live BFCM Drop 1 collection (`https://appsumo.com/collections/black-friday-2026-drop-1/`); each drop is at its lowest price for 48 hours, so `ends` dates on those rows are short.
+
 ## Verification standard
 
 A deal is included only when a public tracker reported reading the offer on a page the vendor controls, with a check date:

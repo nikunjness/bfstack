@@ -236,7 +236,26 @@
     toastTimer = setTimeout(function () { el.classList.remove("is-visible"); }, 3200);
   }
 
+  /* ---------- Theme ---------- */
+  function initTheme() {
+    var root = document.documentElement;
+    var btn = document.getElementById("theme-toggle");
+    var label = document.getElementById("theme-label");
+    if (!btn) return;
+    function apply(t) {
+      root.setAttribute("data-theme", t);
+      btn.setAttribute("aria-label", t === "light" ? "Switch to dark theme" : "Switch to light theme");
+      if (label) label.textContent = t === "light" ? "Light" : "Dark";
+      try { localStorage.setItem("bfai-theme", t); } catch (e) {}
+    }
+    apply(root.getAttribute("data-theme") || "light");
+    btn.addEventListener("click", function () {
+      apply(root.getAttribute("data-theme") === "light" ? "dark" : "light");
+    });
+  }
+
   /* ---------- Wire up ---------- */
+  initTheme();
   buildPills(document.getElementById("model-filters"), models, "model");
   buildPills(document.getElementById("category-filters"), categories, "category");
   buildSourcePills();

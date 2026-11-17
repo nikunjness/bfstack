@@ -43,6 +43,7 @@ var CFS = "https://creditforstartups.com/black-friday-software-deals";
 var BFV = "https://blackfridayvault.com/";
 var THT = "https://github.com/thuongtin/awesome-bfcm-2026";
 var DM = "https://dealmirror.com/";
+var AS = "https://appsumo.com/collections/black-friday-2026-drop-1/";
 
 window.BFAI_DEALS = [
   /* ---- AI Tools ------------------------------------------------- */
@@ -433,6 +434,43 @@ window.BFAI_DEALS = [
     description: "Pro $91.20/year (was $228), Max $283.20/year. New users only, code BF60.",
     originalPrice: 228, dealPrice: 91.2, per: "/yr", discountLabel: "60% OFF", discountPct: 60,
     cta: "https://blackfridayvault.com/deal/radiantly/", source: "Black Friday Vault", sourceUrl: BFV, checkedOn: "17 Nov", ends: "rolling"
+  },
+
+  /* ---- AppSumo Black Friday 2026 · Drop 1 (checked 17 Nov) -------- */
+  {
+    id: "visby", name: "Visby", vendor: "AppSumo", category: "Software", model: "lifetime",
+    tagline: "Track AI brand mentions and GEO gaps.",
+    description: "GEO and AI search optimisation: benchmark share of voice and close SEO/GEO content gaps. 169 reviews. AppSumo's $948 is a reference list price.",
+    originalPrice: 948, dealPrice: 69, per: "once", discountLabel: "93% OFF", discountPct: 93,
+    cta: "https://appsumo.com/products/visby/", source: "AppSumo", sourceUrl: AS, checkedOn: "17 Nov", ends: "18 Nov"
+  },
+  {
+    id: "press-ranger", name: "Press Ranger", vendor: "AppSumo", category: "Software", model: "lifetime",
+    tagline: "AI-powered journalist and podcast pitching.",
+    description: "Find and pitch journalists, publishers and podcasts for earned coverage. 145 reviews. Reference list price $500.",
+    originalPrice: 500, dealPrice: 64, per: "once", discountLabel: "87% OFF", discountPct: 87,
+    cta: "https://appsumo.com/products/press-ranger/", source: "AppSumo", sourceUrl: AS, checkedOn: "17 Nov", ends: "18 Nov"
+  },
+  {
+    id: "emailit", name: "Emailit", vendor: "AppSumo", category: "API & Dev", model: "lifetime",
+    tagline: "Transactional email via REST API or SMTP.",
+    description: "Send transactional email through a REST API or SMTP relay, with marketing campaigns and automations. 215 reviews.",
+    originalPrice: 288, dealPrice: 54, per: "once", discountLabel: "81% OFF", discountPct: 81,
+    cta: "https://appsumo.com/products/emailit/", source: "AppSumo", sourceUrl: AS, checkedOn: "17 Nov", ends: "18 Nov"
+  },
+  {
+    id: "clugtm", name: "CluGTM", vendor: "AppSumo", category: "Software", model: "lifetime",
+    tagline: "AI lead research across 1B+ profiles.",
+    description: "Formerly Cleanlist AI. Search over a billion profiles, enrich from 25+ providers and research leads with AI. 121 reviews.",
+    originalPrice: 104, dealPrice: 79, per: "once", discountLabel: "24% OFF", discountPct: 24,
+    cta: "https://appsumo.com/products/clugtm/", source: "AppSumo", sourceUrl: AS, checkedOn: "17 Nov", ends: "18 Nov"
+  },
+  {
+    id: "robinreach", name: "RobinReach", vendor: "AppSumo", category: "Software", model: "lifetime",
+    tagline: "AI social content across 13 platforms.",
+    description: "Automate social publishing across 13 platforms with AI content creation, repurposing and MCP integration. 120 reviews.",
+    originalPrice: 99, dealPrice: 69, per: "once", discountLabel: "30% OFF", discountPct: 30,
+    cta: "https://appsumo.com/products/robinreach/", source: "AppSumo", sourceUrl: AS, checkedOn: "17 Nov", ends: "18 Nov"
   }
 ];
 
