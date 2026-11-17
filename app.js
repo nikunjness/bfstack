@@ -85,6 +85,9 @@
 
   /* ---------- Card rendering ---------- */
   function priceBlock(d) {
+    if (d.priceText) {
+      return '<div class="price"><span class="price__new price__new--text">' + esc(d.priceText) + "</span></div>";
+    }
     if (d.isFree) {
       return '<div class="price"><span class="price__new">Free</span><span class="price__per">' + esc(d.per) + "</span></div>";
     }
@@ -115,14 +118,19 @@
       '<p class="deal-card__desc">' + esc(d.tagline) + " " + esc(d.description) + "</p>" +
       '<div class="deal-card__tags">' +
         (d.featured ? '<span class="tag tag--featured">✦ Featured</span>' : "") +
-        '<span class="tag tag--model">' + esc(m.short) + "</span>" +
+        '<span class="tag tag--model">' + esc(d.modelLabel || m.short) + "</span>" +
         '<span class="tag">' + esc(d.category) + "</span>" +
-        '<span class="tag tag--sample">SAMPLE</span>' +
+        '<span class="tag tag--verified">✓ CHECKED</span>' +
       "</div>" +
-      '<div class="deal-card__source">via ' + esc(d.source) + "</div>" +
       '<div class="deal-card__bottom">' + priceBlock(d) +
         '<a class="deal-cta" href="' + esc(d.cta) + '" target="_blank" rel="noopener noreferrer"' +
         ' data-name="' + esc(d.name) + '">Get deal <span aria-hidden="true">↗</span></a>' +
+      "</div>" +
+      '<div class="deal-card__meta">' +
+        "<span>" + (d.checkedOn ? "Checked " + esc(d.checkedOn) : "Checked") +
+          (d.ends ? " · ends " + esc(d.ends) : "") + "</span>" +
+        '<a href="' + esc(d.sourceUrl || d.cta) + '" target="_blank" rel="noopener noreferrer">Source: ' +
+          esc(d.source || d.vendor) + " ↗</a>" +
       "</div>" +
     "</article>";
   }
@@ -166,7 +174,7 @@
   }
 
   function initStructuredData() {
-    // Names and URLs only. Add Offer price data here once deals are verified.
+    // Names, descriptions and vendor URLs only — no price claims in schema.
     var items = deals.map(function (d, i) {
       return {
         "@type": "ListItem",
@@ -179,9 +187,16 @@
     script.type = "application/ld+json";
     script.textContent = JSON.stringify({
       "@context": "https://schema.org", "@type": "ItemList",
-      name: "AI Black Friday deals (sample data)", itemListElement: items
+      name: "BF/AI — live Black Friday 2026 AI deals", itemListElement: items
     });
     document.head.appendChild(script);
+  }
+
+  function initWatchlist() {
+    var el = document.getElementById("no-deal-list");
+    var none = window.BFAI_NO_DEAL || [];
+    if (!el || !none.length) return;
+    el.textContent = none.join(" · ");
   }
 
   /* ---------- Toast ---------- */
@@ -201,6 +216,7 @@
   initCountdown();
   initStats();
   initStructuredData();
+  initWatchlist();
 
   var urlQuery = new URLSearchParams(location.search).get("q");
   if (urlQuery) { state.query = urlQuery; searchEl.value = urlQuery; refresh(); }
@@ -218,6 +234,6 @@
   });
   document.addEventListener("click", function (e) {
     var cta = e.target.closest(".deal-cta");
-    if (cta) toast("Sample data — confirm the price on " + cta.dataset.name + "'s site.");
+    if (cta) toast("Confirm the price and renewal terms on " + cta.dataset.name + "'s site.");
   });
 })();

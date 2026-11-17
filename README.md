@@ -1,8 +1,24 @@
-# BF/AI — Black Friday deals for the AI stack
+# BF/AI — live Black Friday deals for the AI stack
 
 A zero-build static deal aggregator for AI tools, software, APIs, compute and hardware. Deals are filtered by **how you pay** — lifetime, annual, credits or BYOK — before category.
 
-> **Demo build.** Every price in `deals.js` is illustrative sample data, not a verified live offer. Replace the data before real launch.
+Every card carries a source link and a check date. Live data was researched 15–17 November 2026, ahead of Black Friday (27 Nov) and Cyber Monday (30 Nov).
+
+## Verification standard
+
+A deal is included only when a public tracker reported reading the offer on a page the vendor controls, with a check date:
+
+| Evidence | URL | Checked |
+| --- | --- | --- |
+| PromptsRush — vendor-page-only tracker | https://promptsrush.com/blog/black-friday-ai-tool-deals | 16 Nov 2026 |
+| TechBonna — vendor-checked AI deals | https://techbonna.com/black-friday-ai-deals/ | 15 Nov 2026 |
+| WPOS — vendor-checked roundup | https://wpos.ai/blog/ai-black-friday-deals | 15 Nov 2026 |
+| Resourify — credits/API deal feed | https://resourify.com/topics/ai | 9 Nov 2026 |
+| The Ground Plane — price-history checked hardware | https://thegroundplane.com/reviews/black-friday-tech-2026 | 14 Nov 2026 |
+
+`sourceUrl` is the evidence; `cta` is the vendor. If they disagree, the vendor page wins. Trackers can be wrong and offers expire — re-check before publishing further changes.
+
+**What is deliberately absent:** ChatGPT, Claude, Gemini, Cursor, GitHub Copilot, Midjourney, Perplexity, Grammarly, Notion, HeyGen, Descript, Canva, Ahrefs and Semrush had no live offer at check time. Coupon-site codes such as "50% off Cursor" or "ChatGPT lifetime $49.50" are not vendor-verified and are excluded. Most advertised AI percentages are annual-billing switches or first-month trials, not seasonal price cuts — the card text says so where it matters.
 
 ## Run locally
 
@@ -25,36 +41,42 @@ All content lives in [`deals.js`](deals.js). Add one object to `window.BFAI_DEAL
   category: "AI Tools",          // must exist in BFAI_CATEGORIES
   model: "lifetime",             // lifetime | annual | credits | byok
   tagline: "Short hook",
-  description: "What it does and what the offer covers.",
+  description: "What the offer covers, including renewal caveats.",
   originalPrice: 240,
   dealPrice: 120,
-  per: "/yr",                    // "/yr", "/mo", "once", "in credits", "self-host free"
-  discountLabel: "50% OFF",      // shown as the badge
+  per: "/yr",                    // "/yr", "/mo 6mo", "/1st mo", "once"
+  discountLabel: "50% OFF",      // badge text
   discountPct: 50,               // used for sorting + the average stat
-  cta: "https://vendor.example/",
-  source: "PartnerStack",
-  featured: false,               // optional
-  isCredit: false,               // optional: renders "$50 base -> $150 in credits"
-  isFree: false                  // optional: renders "Free"
+  cta: "https://vendor.example/pricing",
+  source: "PromptsRush",         // evidence provider
+  sourceUrl: "https://...",      // link to the evidence page
+  checkedOn: "16 Nov",           // when the evidence was read
+  ends: "1 Dec",                 // optional printed end date / countdown / rolling
+  priceText: "Up to 50% off",    // optional: replaces the numeric price display
+  modelLabel: "First month",     // optional: overrides the model pill text
+  featured: false                // optional
 }
 ```
 
-Add a new category to `BFAI_CATEGORIES`; add a new pricing model to `BFAI_MODELS` (give it an `accent` hex — the card colour encodes the pricing model).
+Add a new category to `BFAI_CATEGORIES`; add a pricing model to `BFAI_MODELS` (give it an `accent` hex — card colour encodes the model). `BFAI_NO_DEAL` drives the "no live offer yet" watchlist.
 
-## Sourcing pipeline
+## Keep it current
 
-The site is the front end. The data layer is designed for these six channels:
+- Delete a deal when its `ends` date passes, unless the vendor extends it.
+- Never add a deal without `sourceUrl` and `checkedOn`.
+- Record the renewal price in `description` for first-month / first-year offers.
+- A scraper can regenerate `deals.js` on a cron from the channels below, but keep the evidence fields.
 
-| Channel | Examples | What to pull |
-| --- | --- | --- |
-| Open-source lists | `Awesome-Black-Friday-Cyber-Monday`, `black-friday-ai` repos | Parse community markdown on a schedule; PR-verified codes |
-| LTD marketplaces | AppSumo, StackSocial, DealMirror, PitchGround | Lifetime / one-time deals for AI wrappers and SEO tools |
-| AI directories | TAAFT, Product Hunt, Futurepedia, Toolify | Seasonal tags, trending filters, founder codes in comments |
-| SaaS affiliate networks | PartnerStack, Rewardful, FirstPromoter, Lemon Squeezy, Gumroad | Marketplace feeds and active promo codes |
-| Cloud + hardware | RunPod, Lambda, Vast.ai, Hugging Face; NVIDIA, Apple, Newegg, B&H | Compute-credit bonuses and high-VRAM hardware |
-| Social listening | `#BlackFridayAI`, `#buildinpublic`; r/LocalLLaMA, r/SaaS, r/appsumo | RSS / keyword alerts for founder-posted deals |
+| Channel | Examples |
+| --- | --- |
+| Open-source lists | `Awesome-Black-Friday-Cyber-Monday`, `black-friday-ai` repos |
+| LTD marketplaces | AppSumo, StackSocial, DealMirror, PitchGround |
+| AI directories | TAAFT, Product Hunt, Futurepedia, Toolify |
+| SaaS affiliate networks | PartnerStack, Rewardful, FirstPromoter, Lemon Squeezy, Gumroad |
+| Cloud + hardware | RunPod, Lambda, Vast.ai, Hugging Face; NVIDIA, Apple, Newegg, B&H |
+| Social listening | `#BlackFridayAI`, `#buildinpublic`; r/LocalLLaMA, r/SaaS, r/appsumo |
 
-A scraper can write a new `deals.js` (or a JSON file consumed by `app.js`) on a cron. Keep an `observedAt` timestamp and a source URL per deal so stale prices can be dropped automatically.
+Note: RunPod, Lambda, Nebius, CoreWeave and the hyperscalers had **no** official GPU-cloud sale as of 16–17 November. Hardware prices are elevated by the memory shortage; availability can beat waiting for a discount.
 
 ## Deploy
 
@@ -64,4 +86,4 @@ Vercel picks it up as a static site — no build command required.
 vercel --prod
 ```
 
-The repo is at `https://github.com/themacmarketer/bfstack`.
+The repo is at `https://github.com/themacmarketer/bfstack`; production is https://bfstack.vercel.app (Vercel project under the `maplecommerce-projects` team, deployment protection disabled so the URL is public).

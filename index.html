@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BF/AI — Black Friday Deals for the AI Stack</title>
-  <meta name="description" content="Black Friday and Cyber Monday deals for AI tools, software, APIs, cloud compute and local AI hardware — filtered by how you actually pay: lifetime, annual, credits or BYOK." />
+  <title>BF/AI — Live Black Friday Deals for the AI Stack</title>
+  <meta name="description" content="Live, source-linked Black Friday and Cyber Monday 2026 deals for AI tools, software, APIs, cloud compute and local AI hardware — filtered by how you actually pay: lifetime, annual, credits or BYOK." />
   <meta name="theme-color" content="#0a0a0f" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="BF/AI — Black Friday Deals for the AI Stack" />
-  <meta property="og:description" content="Every AI deal in one place. Filter by lifetime, annual, compute credits or BYOK." />
+  <meta property="og:title" content="BF/AI — Live Black Friday Deals for the AI Stack" />
+  <meta property="og:description" content="Live AI deals, source-linked and dated. Filter by lifetime, annual, credits or BYOK." />
   <meta property="og:url" content="https://bfstack.vercel.app" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c8ff4d'/%3E%3Ctext x='32' y='43' font-family='Arial,sans-serif' font-size='30' font-weight='900' text-anchor='middle' fill='%230a0a0f'%3EBF%3C/text%3E%3C/svg%3E" />
@@ -32,9 +32,9 @@
   </script>
 </head>
 <body>
-  <div class="demo-bar" role="note">
-    <span class="demo-bar__dot"></span>
-    <strong>Demo build.</strong> Deal prices below are illustrative sample data — not verified live offers. Swap in sourced deals via <code>deals.js</code> before launch.
+  <div class="status-bar" role="note">
+    <span class="status-bar__dot"></span>
+    <strong>Live deals.</strong> Researched 15–17 Nov 2026, with a source link and check date on every card. Prices change — the vendor's own page wins.
   </div>
 
   <header class="site-header">
@@ -88,7 +88,7 @@
     </section>
 
     <section class="wrap stats" aria-label="Site statistics">
-      <div class="stat"><strong id="stat-deals">—</strong><span>deals tracked</span></div>
+      <div class="stat"><strong id="stat-deals">—</strong><span>live deals</span></div>
       <div class="stat"><strong id="stat-avg">—</strong><span>average discount</span></div>
       <div class="stat"><strong id="stat-sources">—</strong><span>sourcing channels</span></div>
       <div class="stat"><strong>4</strong><span>ways to pay</span></div>
@@ -139,6 +139,16 @@
         <p>Try a different pricing model or clear your search.</p>
         <button class="btn btn--primary" id="reset-filters" type="button">Reset filters</button>
       </div>
+
+      <aside class="watchlist">
+        <div class="watchlist__head">
+          <strong>No live offer yet</strong>
+          <span>Checked on vendor pages, 15–16 Nov 2026</span>
+        </div>
+        <p class="watchlist__names" id="no-deal-list"></p>
+        <p class="watchlist__note">Coupon-site codes claiming 50% off Cursor or a ChatGPT lifetime licence are not vendor-verified. We don't list them.</p>
+        <a class="watchlist__source" href="https://promptsrush.com/blog/black-friday-ai-tool-deals" target="_blank" rel="noopener">See the verification tracker ↗</a>
+      </aside>
     </section>
 
     <section class="method" id="method">
@@ -179,7 +189,7 @@
       <div class="footer-links"><a href="#deals">Deals</a><a href="#method">Method</a><a href="https://github.com/themacmarketer/bfstack" target="_blank" rel="noopener">GitHub</a></div>
     </div>
     <div class="wrap footer-legal">
-      <p><strong>Disclosure:</strong> This is a demo build. All prices shown are illustrative sample data, not verified live offers. Always confirm the final price on the vendor's own site. Affiliate links may be present in a future version.</p>
+      <p><strong>How to read this:</strong> Deals were checked between 9 and 17 November 2026 against public trackers that read vendor pages. Each card links to the evidence. Prices, codes and end dates can change — the vendor's own page is authoritative. Some links may become affiliate links; that does not change what we report.</p>
       <p>BF/AI · 2026</p>
     </div>
   </footer>
