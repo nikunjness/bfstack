@@ -37,6 +37,12 @@ var WP = "https://wpos.ai/blog/ai-black-friday-deals";
 var RS = "https://resourify.com/topics/ai";
 var TG = "https://thegroundplane.com/reviews/black-friday-tech-2026";
 var TC = "https://www.techcing.com/black-friday-laptop-deals-2026";
+var BFT = "https://blackfriday.tools/";
+var SBF = "https://saasblackfriday.online/?status=live";
+var CFS = "https://creditforstartups.com/black-friday-software-deals";
+var BFV = "https://blackfridayvault.com/";
+var THT = "https://github.com/thuongtin/awesome-bfcm-2026";
+var DM = "https://dealmirror.com/";
 
 window.BFAI_DEALS = [
   /* ---- AI Tools ------------------------------------------------- */
@@ -314,6 +320,119 @@ window.BFAI_DEALS = [
     description: "B&H Photo had up to $300 off M5 MacBook Pros when checked. 16GB minimum recommended for local tooling.",
     originalPrice: 0, dealPrice: 0, per: "", discountLabel: "$300 OFF", discountPct: 12,
     cta: "https://www.bhphotovideo.com/", source: "Tech Cing", sourceUrl: TC, checkedOn: "15 Nov", ends: "rolling"
+  },
+
+  /* ---- Added from the expanded source directory (checked 17 Nov) --- */
+  {
+    id: "pixara-ai", name: "Pixara AI", vendor: "Pixara", category: "AI Tools", model: "annual",
+    tagline: "27 video + 28 image models in one studio.",
+    description: "Up to 70% off yearly plans: Pro $20/mo (was $60), Ultimate $75/mo (was $250). No code needed.",
+    originalPrice: 60, dealPrice: 20, per: "/mo yr", discountLabel: "67% OFF", discountPct: 67,
+    cta: "https://saasblackfriday.online/go/pixara-ai/", source: "SaaS Black Friday", sourceUrl: SBF, checkedOn: "17 Nov", ends: "30 Nov"
+  },
+  {
+    id: "prowritingaid", name: "ProWritingAid", vendor: "ProWritingAid", category: "Software", model: "annual",
+    tagline: "50% off yearly and lifetime plans.",
+    description: "Premium and Premium Pro yearly and lifetime plans 50% off, plus 25% off Story Credits.",
+    originalPrice: 0, dealPrice: 0, per: "", discountLabel: "50% OFF", discountPct: 50, priceText: "50% off annual + lifetime",
+    cta: "https://prowritingaid.com/", source: "SaaS Black Friday", sourceUrl: SBF, checkedOn: "17 Nov", ends: "4 Dec"
+  },
+  {
+    id: "translatewp", name: "TranslateWP", vendor: "TranslateWP", category: "Software", model: "annual",
+    tagline: "$59/yr with the renewal price locked.",
+    description: "Orbital plan at $59/year, down from $119, with the discount locked in on renewals. Rare structural saving.",
+    originalPrice: 119, dealPrice: 59, per: "/yr", discountLabel: "50% OFF", discountPct: 50,
+    cta: "https://translatewp.com/", source: "blackfriday.tools", sourceUrl: BFT, checkedOn: "17 Nov", ends: "7 Dec"
+  },
+  {
+    id: "seedeo", name: "Seedeo", vendor: "Seedeo", category: "AI Tools", model: "credits",
+    priceText: "20,000 credits for $99",
+    tagline: "Non-expiring AI video credits.",
+    description: "20,000 non-expiring credits for $99 instead of $259.90. Credit packs, not a subscription.",
+    originalPrice: 259.9, dealPrice: 99, per: "credits", discountLabel: "62% OFF", discountPct: 62,
+    cta: "https://blackfriday.tools/deals/seedeo", source: "blackfriday.tools", sourceUrl: BFT, checkedOn: "17 Nov", ends: "30 Nov"
+  },
+  {
+    id: "citation-rocket", name: "Citation Rocket", vendor: "Citation Rocket", category: "Software", model: "lifetime",
+    tagline: "AI citation tracking, lifetime licence.",
+    description: "40% off the lifetime licence: $59 instead of $99. Agency with white-label PDF reports $89, down from $149.",
+    originalPrice: 99, dealPrice: 59, per: "once", discountLabel: "40% OFF", discountPct: 40,
+    cta: "https://blackfriday.tools/deals/citation-rocket", source: "blackfriday.tools", sourceUrl: BFT, checkedOn: "17 Nov", ends: "2 Dec"
+  },
+  {
+    id: "layerwise", name: "Layerwise", vendor: "Layerwise", category: "Software", model: "byok",
+    modelLabel: "BYOK · 12 months",
+    tagline: "Bring your own ChatGPT or Claude subscription.",
+    description: "20% off all plans for 12 months, monthly or annual, when you build with your own ChatGPT or Claude subscription.",
+    originalPrice: 0, dealPrice: 0, per: "", discountLabel: "20% OFF", discountPct: 20, priceText: "20% off for 12 months",
+    cta: "https://layerwise.app/pricing", source: "Credit for Startups", sourceUrl: CFS, checkedOn: "16 Nov", ends: "2 Dec"
+  },
+  {
+    id: "grackerai", name: "GrackerAI", vendor: "GrackerAI", category: "Software", model: "annual",
+    tagline: "AI search visibility for B2B SaaS.",
+    description: "20% off: Individual drops from $99/mo to $79.20/mo. AEO and GEO tracking for cybersecurity and B2B brands.",
+    originalPrice: 99, dealPrice: 79.2, per: "/mo", discountLabel: "20% OFF", discountPct: 20,
+    cta: "https://gracker.ai/blog/black-friday-deals", source: "Credit for Startups", sourceUrl: CFS, checkedOn: "16 Nov", ends: "15 Dec"
+  },
+  {
+    id: "piloterr", name: "Piloterr", vendor: "Piloterr", category: "API & Dev", model: "annual",
+    priceText: "50% off for 3 months",
+    tagline: "Scraping API with browser rotation.",
+    description: "Web-scraping API handling headless browsers and proxy rotation. 50% off for three months.",
+    originalPrice: 0, dealPrice: 0, per: "", discountLabel: "50% OFF", discountPct: 50,
+    cta: "https://www.piloterr.com/blackfriday", source: "Credit for Startups", sourceUrl: CFS, checkedOn: "16 Nov", ends: "rolling"
+  },
+  {
+    id: "clipugc", name: "ClipUGC", vendor: "ClipUGC", category: "AI Tools", model: "annual",
+    modelLabel: "First 2 months",
+    tagline: "AI UGC videos from an App Store link.",
+    description: "50% off any plan for the first two months. Professional drops from $14.99 to $7.50/month.",
+    originalPrice: 14.99, dealPrice: 7.5, per: "/mo", discountLabel: "50% OFF", discountPct: 50,
+    cta: "https://clipugc.com/black-friday", source: "Credit for Startups", sourceUrl: CFS, checkedOn: "16 Nov", ends: "6 Dec"
+  },
+  {
+    id: "coderick", name: "Coderick AI", vendor: "SiteGround", category: "Software", model: "annual",
+    tagline: "AI site builder with hosting, half price.",
+    description: "50% off all annual plans for the first year: Essential $50, Plus $100, Pro $200. Monthly plans and renewals full price.",
+    originalPrice: 100, dealPrice: 50, per: "/yr", discountLabel: "50% OFF", discountPct: 50,
+    cta: "https://www.siteground.com/coderick-ai", source: "Credit for Startups", sourceUrl: CFS, checkedOn: "16 Nov", ends: "27 Nov"
+  },
+  {
+    id: "magica", name: "Magica", vendor: "Magica", category: "Software", model: "lifetime",
+    tagline: "Lifetime licence at $499.",
+    description: "Lifetime access at $499, down from $1,999. Listed as a Black Friday only offer.",
+    originalPrice: 1999, dealPrice: 499, per: "once", discountLabel: "75% OFF", discountPct: 75,
+    cta: "https://blackfridayvault.com/deal/magica/", source: "Black Friday Vault", sourceUrl: BFV, checkedOn: "17 Nov", ends: "BF only"
+  },
+  {
+    id: "rezi", name: "Rezi", vendor: "Rezi", category: "Software", model: "annual",
+    modelLabel: "First 3 months",
+    tagline: "AI CV builder, 70% off.",
+    description: "70% off Pro for three months at $8.70/month, down from $29. Code Blackfriday2026.",
+    originalPrice: 29, dealPrice: 8.7, per: "/mo", discountLabel: "70% OFF", discountPct: 70,
+    cta: "https://blackfridayvault.com/deal/rezi/", source: "Black Friday Vault", sourceUrl: BFV, checkedOn: "17 Nov", ends: "rolling"
+  },
+  {
+    id: "costgoat", name: "CostGoat", vendor: "CostGoat", category: "Software", model: "lifetime",
+    tagline: "Track AI and cloud spend, pay once.",
+    description: "50% off lifetime at $99, down from $199. Code FCBF26. Tracks AI, cloud and SaaS costs in real time.",
+    originalPrice: 199, dealPrice: 99, per: "once", discountLabel: "50% OFF", discountPct: 50,
+    cta: "https://github.com/thuongtin/awesome-bfcm-2026", source: "thuongtin BFCM list", sourceUrl: THT, checkedOn: "17 Nov", ends: "1 Dec"
+  },
+  {
+    id: "justdocz", name: "JustDocz", vendor: "DealMirror", category: "Software", model: "lifetime",
+    tagline: "Private AI document search, $29 lifetime.",
+    description: "AI-powered local document search with OCR at $29 lifetime, down from $149. DealMirror 30-day refund for regular buyers.",
+    originalPrice: 149, dealPrice: 29, per: "once", discountLabel: "81% OFF", discountPct: 81,
+    cta: "https://dealmirror.com/product/justdocz/", source: "DealMirror", sourceUrl: DM, checkedOn: "17 Nov", ends: "20 Nov"
+  },
+  {
+    id: "radiantly", name: "Radiantly", vendor: "Radiantly", category: "AI Tools", model: "annual",
+    modelLabel: "First year",
+    tagline: "60% off the first annual payment.",
+    description: "Pro $91.20/year (was $228), Max $283.20/year. New users only, code BF60.",
+    originalPrice: 228, dealPrice: 91.2, per: "/yr", discountLabel: "60% OFF", discountPct: 60,
+    cta: "https://blackfridayvault.com/deal/radiantly/", source: "Black Friday Vault", sourceUrl: BFV, checkedOn: "17 Nov", ends: "rolling"
   }
 ];
 
@@ -322,4 +441,29 @@ window.BFAI_NO_DEAL = [
   "ChatGPT", "Claude", "Gemini", "Cursor", "GitHub Copilot",
   "Midjourney", "Perplexity", "Grammarly", "Notion", "HeyGen",
   "Descript", "Canva", "Ahrefs", "Semrush"
+];
+
+/* 20 additional deal sources, each checked as a live page on 17 Nov 2026.
+   type: Tracker | GitHub list | Marketplace | Verification tool */
+window.BFAI_SOURCE_DIRECTORY = [
+  { name: "blackfriday.tools", type: "Tracker", url: "https://blackfriday.tools/", note: "Hand-verified SaaS and AI deals with expiry tracked to the minute; 20 live AI deals at check. Exposes an MCP/API feed." },
+  { name: "SaaS Black Friday", type: "Tracker", url: "https://saasblackfriday.online/?status=live", note: "240+ SaaS and AI tools across 14 categories, with per-tool deal history labelled by year and email alerts." },
+  { name: "Black Friday AI Tools", type: "Tracker", url: "https://blackfridayai.tools/", note: "20 AI tools tracked, offers checked against official pricing pages; states confirmed-offer and verified-brand counts." },
+  { name: "Credit for Startups", type: "Tracker", url: "https://creditforstartups.com/black-friday-software-deals", note: "Strong AI-tool and startup-credit coverage, with a visible 'no deal found' column for big names." },
+  { name: "AIDeals.app", type: "Tracker", url: "https://aideals.app/deals/black-friday", note: "Dated codes, end dates and price-history pages; also publishes a buyer FAQ on caps and renewal traps." },
+  { name: "Black Friday Vault", type: "Tracker", url: "https://blackfridayvault.com/", note: "132 live deals with AI filters, working codes and community ranking; alerts by category and minimum discount." },
+  { name: "Black Friday Times", type: "Tracker", url: "https://blackfridaytimes.com/", note: "Directory focused on tools for makers — AI, dev, design and marketing software, with early-BF status labels." },
+  { name: "Black Friday Deals for Devs", type: "Tracker", url: "https://blackfridaydeals.dev/", note: "Curated BFCM hub for developers and designers: AI tools, hosting, courses and design resources." },
+  { name: "trungdq88 Awesome BFCM", type: "GitHub list", url: "https://github.com/trungdq88/Awesome-Black-Friday-Cyber-Monday", note: "7.5k stars, hand-reviewed software-only list from the maker of TypingMind. Explicitly rejects half-finished AI slop." },
+  { name: "mRs-/Black-Friday-Deals", type: "GitHub list", url: "https://github.com/mRs-/Black-Friday-Deals", note: "2.3k stars; the reference macOS/iOS software list, with a substantial AI-tools section." },
+  { name: "twf-nikhila BFCM list", type: "GitHub list", url: "https://github.com/twf-nikhila/Awesome-Black-Friday-Cyber-Monday-deals", note: "Structured categories including AI assistants, SEO visibility, developer tools and Mac utilities." },
+  { name: "LabEx BFCM deals", type: "GitHub list", url: "https://github.com/labex-labs/black-friday-cyber-monday-deals", note: "Curated developer, cloud, security and AI deals in price/code/end-date tables." },
+  { name: "Pimjo black-friday-deals", type: "GitHub list", url: "https://github.com/Pimjo/black-friday-deals", note: "11 categories for developers and designers; official links only, active or upcoming deals, PR-reviewed within 48h." },
+  { name: "thuongtin awesome-bfcm-2026", type: "GitHub list", url: "https://github.com/thuongtin/awesome-bfcm-2026", note: "Deeply categorised 2026 list covering AI/SaaS, dev tools, hosting and electronics; updated daily." },
+  { name: "AppSumo", type: "Marketplace", url: "https://appsumo.com/", note: "The main lifetime-deal marketplace. 2026 sale started 16 Nov with themed 48-hour drops and a 60-day refund promise." },
+  { name: "StackSocial", type: "Marketplace", url: "https://stacksocial.com/", note: "AI bundles and lifetime subscriptions with review counts; check individual listing terms carefully." },
+  { name: "LTD Explorer", type: "Tracker", url: "https://ltdexplorer.com/blog/black-friday-lifetime-deals-2026", note: "Tracks AppSumo, RocketHub, Earlybird, Dealify, DealMirror and StackSocial; flags guessed versus vendor-confirmed dates." },
+  { name: "DealMirror", type: "Marketplace", url: "https://dealmirror.com/", note: "Secondary LTD marketplace with many niche AI tools; 30-day refund for regular buyers, 60 days for Prime." },
+  { name: "PCPartPicker", type: "Verification tool", url: "https://pcpartpicker.com/", note: "Part-level price history and cross-retailer comparison. The right way to verify an AI-workstation 'discount' in a shortage year." },
+  { name: "Keepa", type: "Verification tool", url: "https://keepa.com/", note: "Amazon price history back to 2011, stock and seller data, with a free browser extension — catches inflated 'was' prices." }
 ];

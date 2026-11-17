@@ -7,7 +7,7 @@
   var categories = window.BFAI_CATEGORIES || [];
   var sources = window.BFAI_SOURCES || [];
 
-  var state = { model: "all", category: "all", query: "", sort: "featured" };
+  var state = { model: "all", category: "all", source: "all", query: "", sort: "featured" };
 
   var grid = document.getElementById("deal-grid");
   var empty = document.getElementById("empty");
@@ -35,9 +35,10 @@
 
     items.forEach(function (item) {
       var id = typeof item === "string" ? item : item.id;
-      var label = typeof item === "string" ? item : (item.short || item.label);
+      var label = typeof item === "string" ? item : (item.short || item.label || item.id);
       var n = deals.filter(function (d) {
-        return key === "model" ? d.model === id : d.category === id;
+        var v = key === "model" ? d.model : key === "category" ? d.category : d.source;
+        return v === id;
       }).length;
       var btn = document.createElement("button");
       btn.type = "button";
@@ -50,8 +51,17 @@
     });
   }
 
+  function buildSourcePills() {
+    var counts = {};
+    deals.forEach(function (d) { counts[d.source] = (counts[d.source] || 0) + 1; });
+    var items = Object.keys(counts).sort(function (a, b) {
+      return counts[b] - counts[a] || a.localeCompare(b);
+    }).map(function (s) { return { id: s, label: s }; });
+    buildPills(document.getElementById("source-filters"), items, "source");
+  }
+
   function syncPills() {
-    [["model-filters", "model"], ["category-filters", "category"]].forEach(function (pair) {
+    [["model-filters", "model"], ["category-filters", "category"], ["source-filters", "source"]].forEach(function (pair) {
       var btns = document.getElementById(pair[0]).querySelectorAll(".pill");
       btns.forEach(function (b, i) {
         var val = i === 0 ? "all" : b.dataset.value;
@@ -66,6 +76,7 @@
     var out = deals.filter(function (d) {
       if (state.model !== "all" && d.model !== state.model) return false;
       if (state.category !== "all" && d.category !== state.category) return false;
+      if (state.source !== "all" && d.source !== state.source) return false;
       if (!q) return true;
       var hay = [d.name, d.vendor, d.tagline, d.description, d.category, d.source,
         modelById(d.model).label].join(" ").toLowerCase();
@@ -192,6 +203,22 @@
     document.head.appendChild(script);
   }
 
+  function initSourceDirectory() {
+    var grid = document.getElementById("source-directory");
+    var list = window.BFAI_SOURCE_DIRECTORY || [];
+    if (!grid || !list.length) return;
+    grid.innerHTML = list.map(function (s, i) {
+      return '<a class="source-card" href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' +
+        '<span class="source-card__num">' + String(i + 1).padStart(2, "0") + "</span>" +
+        '<span class="source-card__type">' + esc(s.type) + "</span>" +
+        "<h3>" + esc(s.name) + "</h3>" +
+        "<p>" + esc(s.note) + "</p>" +
+        '<span class="source-card__go">Open source ↗</span>' +
+      "</a>";
+    }).join("");
+    document.getElementById("source-count").textContent = list.length + " sources";
+  }
+
   function initWatchlist() {
     var el = document.getElementById("no-deal-list");
     var none = window.BFAI_NO_DEAL || [];
@@ -212,21 +239,29 @@
   /* ---------- Wire up ---------- */
   buildPills(document.getElementById("model-filters"), models, "model");
   buildPills(document.getElementById("category-filters"), categories, "category");
+  buildSourcePills();
   refresh();
   initCountdown();
   initStats();
   initStructuredData();
+  initSourceDirectory();
   initWatchlist();
 
-  var urlQuery = new URLSearchParams(location.search).get("q");
-  if (urlQuery) { state.query = urlQuery; searchEl.value = urlQuery; refresh(); }
+  var params = new URLSearchParams(location.search);
+  var urlQuery = params.get("q");
+  var urlSource = params.get("source");
+  if (urlSource) state.source = urlSource;
+  if (urlQuery || urlSource) {
+    if (urlQuery) { state.query = urlQuery; searchEl.value = urlQuery; }
+    refresh();
+  }
 
   searchEl.addEventListener("input", function () { state.query = searchEl.value; refresh(); });
   searchEl.addEventListener("keydown", function (e) { if (e.key === "Escape") { searchEl.value = ""; state.query = ""; refresh(); } });
   clearEl.addEventListener("click", function () { searchEl.value = ""; state.query = ""; refresh(); searchEl.focus(); });
   sortEl.addEventListener("change", function () { state.sort = sortEl.value; refresh(); });
   document.getElementById("reset-filters").addEventListener("click", function () {
-    state.model = "all"; state.category = "all"; state.query = ""; state.sort = "featured";
+    state.model = "all"; state.category = "all"; state.source = "all"; state.query = ""; state.sort = "featured";
     searchEl.value = ""; sortEl.value = "featured"; refresh();
   });
   document.getElementById("submit-btn").addEventListener("click", function () {

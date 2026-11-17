@@ -15,6 +15,15 @@ A deal is included only when a public tracker reported reading the offer on a pa
 | WPOS — vendor-checked roundup | https://wpos.ai/blog/ai-black-friday-deals | 15 Nov 2026 |
 | Resourify — credits/API deal feed | https://resourify.com/topics/ai | 9 Nov 2026 |
 | The Ground Plane — price-history checked hardware | https://thegroundplane.com/reviews/black-friday-tech-2026 | 14 Nov 2026 |
+| Tech Cing — laptop deals | https://www.techcing.com/black-friday-laptop-deals-2026 | 15 Nov 2026 |
+| blackfriday.tools | https://blackfriday.tools/ | 17 Nov 2026 |
+| SaaS Black Friday | https://saasblackfriday.online/?status=live | 17 Nov 2026 |
+| Credit for Startups | https://creditforstartups.com/black-friday-software-deals | 16 Nov 2026 |
+| Black Friday Vault | https://blackfridayvault.com/ | 17 Nov 2026 |
+| thuongtin BFCM list | https://github.com/thuongtin/awesome-bfcm-2026 | 17 Nov 2026 |
+| DealMirror | https://dealmirror.com/ | 17 Nov 2026 |
+
+A further **20 checked sources** are published in the on-site directory (`BFAI_SOURCE_DIRECTORY`): trackers, GitHub lists, LTD marketplaces and price-verification tools. Every URL was confirmed as a live, relevant page on 17 November 2026. Deals can be filtered by source in the UI or via `?source=<name>` (e.g. `?source=blackfriday.tools`), and searched with `?q=<term>`.
 
 `sourceUrl` is the evidence; `cta` is the vendor. If they disagree, the vendor page wins. Trackers can be wrong and offers expire — re-check before publishing further changes.
 

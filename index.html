@@ -46,6 +46,7 @@
       <nav class="nav" aria-label="Main navigation">
         <a href="#deals">Deals</a>
         <a href="#method">How we source</a>
+        <a href="#sources">20 sources</a>
         <a href="#submit">Submit a deal</a>
       </nav>
       <a class="header-cta" href="#submit">Submit a deal <span aria-hidden="true">↗</span></a>
@@ -119,6 +120,10 @@
             <span class="filter-label">Category</span>
             <div class="pills" id="category-filters" role="group" aria-label="Filter by category"></div>
           </div>
+          <div class="filter-group filter-group--source">
+            <span class="filter-label">Deal source</span>
+            <div class="pills" id="source-filters" role="group" aria-label="Filter by deal source"></div>
+          </div>
           <div class="filter-group filter-group--sort">
             <label class="filter-label" for="sort">Sort</label>
             <select id="sort" aria-label="Sort deals">
@@ -171,10 +176,24 @@
       </div>
     </section>
 
+    <section class="sources-section" id="sources">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">03 / THE SOURCES</div>
+            <h2>20 more places we watch.</h2>
+            <p>Every link below was checked as a live page on 17 November 2026. Filter the grid above by any source that has a deal.</p>
+          </div>
+          <div class="result-count" id="source-count">20 sources</div>
+        </div>
+        <div class="source-grid" id="source-directory"></div>
+      </div>
+    </section>
+
     <section class="submit" id="submit">
       <div class="wrap submit__inner">
         <div>
-          <div class="kicker kicker--dark">03 / OPEN SUBMISSIONS</div>
+          <div class="kicker kicker--dark">04 / OPEN SUBMISSIONS</div>
           <h2>Founding a tool? Get listed.</h2>
           <p>Drop your deal in the repo — one row in <code>deals.js</code>, one pull request. No gatekeeper, no pay-to-play.</p>
         </div>
@@ -186,7 +205,7 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <div class="footer-brand"><span class="brand__mark">BF<span>/</span>AI</span><p>Deals for people who build with AI.</p></div>
-      <div class="footer-links"><a href="#deals">Deals</a><a href="#method">Method</a><a href="https://github.com/themacmarketer/bfstack" target="_blank" rel="noopener">GitHub</a></div>
+      <div class="footer-links"><a href="#deals">Deals</a><a href="#method">Method</a><a href="#sources">Sources</a><a href="https://github.com/themacmarketer/bfstack" target="_blank" rel="noopener">GitHub</a></div>
     </div>
     <div class="wrap footer-legal">
       <p><strong>How to read this:</strong> Deals were checked between 9 and 17 November 2026 against public trackers that read vendor pages. Each card links to the evidence. Prices, codes and end dates can change — the vendor's own page is authoritative. Some links may become affiliate links; that does not change what we report.</p>
