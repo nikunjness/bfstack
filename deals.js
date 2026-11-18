@@ -464,7 +464,7 @@ window.BFAI_DEALS = [
     id: "clugtm", name: "CluGTM", vendor: "AppSumo", category: "Software", model: "lifetime",
     tagline: "AI lead research across 1B+ profiles.",
     description: "Formerly Cleanlist AI. Search over a billion profiles, enrich from 25+ providers and research leads with AI. 121 reviews.",
-    originalPrice: 104, dealPrice: 79, per: "once", discountLabel: "24% OFF", discountPct: 24,
+    originalPrice: 600, dealPrice: 79, per: "once", discountLabel: "87% OFF", discountPct: 87,
     cta: "https://appsumo.com/products/clugtm/", source: "AppSumo", sourceUrl: AS, checkedOn: "17 Nov", ends: "18 Nov"
   },
   {
@@ -476,6 +476,20 @@ window.BFAI_DEALS = [
   },
 
   /* ---- From the three submitted crawl targets (checked 18 Nov) ---- */
+  {
+    id: "sbl-so", name: "Sbl.so", vendor: "AppSumo", category: "AI Tools", model: "lifetime",
+    tagline: "AI LinkedIn outreach and lead qualification.",
+    description: "AI writes replies, clones voice notes, extracts leads from an ideal-customer prompt and books calls once a prospect qualifies. Tier 1: $89 (was $1,188).",
+    originalPrice: 1188, dealPrice: 89, per: "once", discountLabel: "93% OFF", discountPct: 93,
+    cta: "https://appsumo.com/products/sbl/", source: "AppSumo", sourceUrl: AS, checkedOn: "18 Nov", ends: "18 Nov"
+  },
+  {
+    id: "fraud-blocker", name: "Fraud Blocker", vendor: "AppSumo", category: "Software", model: "lifetime",
+    tagline: "Ad-fraud detection with your own AI model.",
+    description: "Plus Exclusive. Detects fake clicks from 500M+ ad clicks of training data; choose OpenAI or Claude for plain-language explanations of blocked IPs.",
+    originalPrice: 396, dealPrice: 79, per: "once", discountLabel: "80% OFF", discountPct: 80,
+    cta: "https://appsumo.com/products/fraud-blocker/", source: "AppSumo", sourceUrl: AS, checkedOn: "18 Nov", ends: "18 Nov"
+  },
   {
     id: "boostspace-agentos", name: "Boost.space AgentOS", vendor: "AppSumo", category: "AI Tools", model: "lifetime",
     tagline: "Manage AI agents across 1,400+ models.",

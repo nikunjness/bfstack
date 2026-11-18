@@ -13,16 +13,16 @@
       "addedAt": "2026-11-18",
       "addedBy": "Ivan",
       "lastCrawledAt": "2026-11-18",
-      "candidates": 9,
-      "note": "OttoKit roundup. Percentages only, no absolute prices. Banner 63% conflicts with article 57%. Deals past 900KB of HTML — crawler cap raised to 2MB."
+      "candidates": 5,
+      "note": "OttoKit roundup. Percentages only, no absolute prices. Banner 63% conflicts with article 57%. Deals past 900KB of HTML — crawler cap raised to 2MB. Category headings filtered out as noise."
     },
     {
       "url": "https://6amtech.com/blog/best-ai-black-friday-deals/",
       "addedAt": "2026-11-18",
       "addedBy": "Ivan",
       "lastCrawledAt": "2026-11-18",
-      "candidates": 2,
-      "note": "Low signal: most entries say 'Coming Soon'. Only Botsify published real prices and dates."
+      "candidates": 0,
+      "note": "Low signal: most entries say 'Coming Soon'. Botsify's real prices were added manually. Noise filter now removes the feature-bullet and blog-promotion false positives."
     }
   ]
 }
