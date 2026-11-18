@@ -1,0 +1,9 @@
+{
+  "name": "bf-ai-deals",
+  "version": "1.0.0",
+  "private": true,
+  "description": "BF/AI — live Black Friday deals for the AI stack",
+  "engines": {
+    "node": "22.x"
+  }
+}
