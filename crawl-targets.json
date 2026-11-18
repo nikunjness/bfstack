@@ -1,0 +1,28 @@
+{
+  "targets": [
+    {
+      "url": "https://appsumo.com/blackfriday",
+      "addedAt": "2026-11-18",
+      "addedBy": "Ivan",
+      "lastCrawledAt": "2026-11-18",
+      "candidates": 10,
+      "note": "AppSumo BFCM hub. Drop 1 prices plus early-access deals. Drops rotate every 48h."
+    },
+    {
+      "url": "https://ottokit.com/blog/top-black-friday-deals/",
+      "addedAt": "2026-11-18",
+      "addedBy": "Ivan",
+      "lastCrawledAt": "2026-11-18",
+      "candidates": 9,
+      "note": "OttoKit roundup. Percentages only, no absolute prices. Banner 63% conflicts with article 57%. Deals past 900KB of HTML — crawler cap raised to 2MB."
+    },
+    {
+      "url": "https://6amtech.com/blog/best-ai-black-friday-deals/",
+      "addedAt": "2026-11-18",
+      "addedBy": "Ivan",
+      "lastCrawledAt": "2026-11-18",
+      "candidates": 2,
+      "note": "Low signal: most entries say 'Coming Soon'. Only Botsify published real prices and dates."
+    }
+  ]
+}

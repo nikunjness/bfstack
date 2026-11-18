@@ -226,6 +226,144 @@
     el.textContent = none.join(" · ");
   }
 
+  /* ---------- Source submission / crawler ---------- */
+  function initCrawler() {
+    var form = document.getElementById("crawl-form");
+    if (!form) return;
+    var input = document.getElementById("crawl-url");
+    var btn = document.getElementById("crawl-button");
+    var status = document.getElementById("crawl-status");
+    var results = document.getElementById("crawl-results");
+    var seedsEl = document.getElementById("crawl-seeds");
+    var seeds = [];
+    var last = null;
+
+    fetch("crawl-targets.json").then(function (r) { return r.json(); })
+      .then(function (d) {
+        seeds = d.targets || [];
+        seedsEl.innerHTML = '<span class="crawl-seeds__label">Seeded targets</span>' +
+          seeds.map(function (s) {
+            return '<button type="button" class="crawl-seed" data-url="' + esc(s.url) + '">' + esc(s.url) + "</button>";
+          }).join("");
+      }).catch(function () {});
+
+    function today() {
+      var d = new Date();
+      return d.getDate() + " " + ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][d.getMonth()];
+    }
+
+    function toRow(c, sourceUrl) {
+      var pct = c.discountPct && c.discountPct < 101 ? c.discountPct : null;
+      return {
+        id: c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40),
+        name: c.name,
+        vendor: c.source || "Unknown",
+        category: "Software",
+        model: "lifetime",
+        tagline: (c.description || "").slice(0, 90),
+        description: c.description || "",
+        originalPrice: c.listPrice || 0,
+        dealPrice: c.dealPrice || 0,
+        per: "once",
+        discountLabel: pct ? pct + "% OFF" : "REVIEW",
+        discountPct: pct || 0,
+        cta: c.url || sourceUrl,
+        source: c.source || "Unknown",
+        sourceUrl: sourceUrl,
+        checkedOn: today(),
+        ends: "review"
+      };
+    }
+
+    function copy(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(text);
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) {}
+      document.body.removeChild(ta);
+      return Promise.resolve();
+    }
+
+    function render(data) {
+      last = data;
+      results.hidden = false;
+      var candidates = data.candidates || [];
+      var headline = '<div class="crawl-results__head"><h3>' + esc(data.title || "Fetched page") +
+        '</h3><div><a href="' + esc(data.finalUrl) + '" target="_blank" rel="noopener">Open source ↗</a>' +
+        (candidates.length ? ' · <button type="button" class="crawl-copy" id="copy-all">Copy all rows</button>' : "") +
+        "</div></div>";
+      var list = candidates.length
+        ? '<div class="crawl-list">' + candidates.map(function (c, i) {
+            var bits = [];
+            if (c.dealPrice != null) bits.push("$" + c.dealPrice);
+            if (c.listPrice != null) bits.push("was $" + c.listPrice);
+            if (c.discountPct) bits.push(c.discountPct + "% off");
+            return '<div class="crawl-item"><div class="crawl-item__main">' +
+              '<div class="crawl-item__name">' + esc(c.name) + "</div>" +
+              '<div class="crawl-item__meta">' + esc(bits.join(" · ") || "no price on page") + " · " +
+                esc(c.confidence) + " confidence</div></div>" +
+              '<span class="crawl-item__conf crawl-item__conf--' + esc(c.confidence) + '">' + esc(c.confidence) + "</span>" +
+              '<button type="button" class="crawl-copy" data-copy="' + i + '">Copy row</button></div>';
+          }).join("") + "</div>"
+        : '<div class="crawl-empty">No deal candidates found on this page. Try a source that prints prices or percentages.</div>';
+
+      results.innerHTML = headline + list;
+      var all = document.getElementById("copy-all");
+      if (all) all.addEventListener("click", function () {
+        copy(JSON.stringify(candidates.map(function (c) { return toRow(c, data.finalUrl); }), null, 2))
+          .then(function () { toast("Copied " + candidates.length + " candidate rows"); });
+      });
+      results.querySelectorAll("[data-copy]").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var c = candidates[Number(b.dataset.copy)];
+          copy(JSON.stringify(toRow(c, data.finalUrl), null, 2))
+            .then(function () { toast("Row copied — verify before pasting into deals.js"); });
+        });
+      });
+    }
+
+    seedsEl.addEventListener("click", function (e) {
+      var b = e.target.closest(".crawl-seed");
+      if (!b) return;
+      input.value = b.dataset.url;
+      run(b.dataset.url);
+    });
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      run(input.value.trim());
+    });
+
+    function run(url) {
+      if (!url) { status.textContent = "Enter a URL"; return; }
+      status.textContent = "Crawling…";
+      btn.disabled = true;
+      fetch("/api/crawl", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: url })
+      }).then(function (r) {
+        return r.json().then(function (d) { return { ok: r.ok, data: d }; });
+      }).then(function (res) {
+        btn.disabled = false;
+        if (!res.ok || !res.data.ok) throw new Error(res.data.error || "Crawl failed.");
+        status.textContent = res.data.count + " candidates";
+        render(res.data);
+        toast("Crawled — " + res.data.count + " candidates for review");
+      }).catch(function (err) {
+        btn.disabled = false;
+        var message = String(err.message || err).replace(/\.$/, "");
+        var localHint = /fetch|network|unexpected token|not found|404/i.test(message)
+          ? " Endpoint unavailable in a local preview — run <code>node scripts/crawl.js " + esc(url) + "</code> in the repo." : "";
+        status.textContent = "Crawl failed";
+        results.hidden = false;
+        results.innerHTML = '<div class="crawl-error">' + esc(message) + "." + localHint + "</div>";
+      });
+    }
+  }
+
   /* ---------- Toast ---------- */
   var toastTimer;
   function toast(msg) {
@@ -265,6 +403,7 @@
   initStructuredData();
   initSourceDirectory();
   initWatchlist();
+  initCrawler();
 
   var params = new URLSearchParams(location.search);
   var urlQuery = params.get("q");

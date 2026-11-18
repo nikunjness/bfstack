@@ -71,6 +71,23 @@ All content lives in [`deals.js`](deals.js). Add one object to `window.BFAI_DEAL
 
 Add a new category to `BFAI_CATEGORIES`; add a pricing model to `BFAI_MODELS` (give it an `accent` hex — card colour encodes the model). `BFAI_NO_DEAL` drives the "no live offer yet" watchlist.
 
+## Submit a source for crawling
+
+The site has a "Crawl a source" section (and `POST /api/crawl`) that fetches a page server-side and returns **deal candidates for review**. It never edits `deals.js` automatically.
+
+- `api/crawl.js` — Vercel serverless function. GET lists seeded targets; POST `{ "url": "..." }` returns `{ title, finalUrl, candidates }`.
+- `lib/extract-deals.js` — shared, dependency-free extractor. Splits on `h2`–`h6` and `li`, looks for prices and percentages, dedupes, marks confidence.
+- `scripts/crawl.js` — local CLI using the same extractor:
+  ```bash
+  node scripts/crawl.js                                  # crawls all crawl-targets.json entries
+  node scripts/crawl.js https://example.com/deals --out results.json
+  ```
+- `crawl-targets.json` — seeded targets with check dates, candidate counts and notes.
+
+Safety in the endpoint: http/https only, no credentials, private IP ranges and `localhost`/`.local`/`.internal` blocked, 3 redirects max, 9s timeout, 2 MB body cap. The UI presents every candidate as unverified with a "Copy row" action that emits a schema-ready `deals.js` object.
+
+Seeded on 18 Nov 2026: AppSumo BFCM hub (10 candidates), OttoKit roundup (9), 6amtech AI list (2 — mostly "Coming Soon"). Review before publishing; the extractor is deliberately recall-first, not truth-first.
+
 ## Keep it current
 
 - Delete a deal when its `ends` date passes, unless the vendor extends it.

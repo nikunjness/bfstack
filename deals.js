@@ -43,7 +43,9 @@ var CFS = "https://creditforstartups.com/black-friday-software-deals";
 var BFV = "https://blackfridayvault.com/";
 var THT = "https://github.com/thuongtin/awesome-bfcm-2026";
 var DM = "https://dealmirror.com/";
-var AS = "https://appsumo.com/collections/black-friday-2026-drop-1/";
+var AS = "https://appsumo.com/blackfriday";
+var OT = "https://ottokit.com/blog/top-black-friday-deals/";
+var SXT = "https://6amtech.com/blog/best-ai-black-friday-deals/";
 
 window.BFAI_DEALS = [
   /* ---- AI Tools ------------------------------------------------- */
@@ -471,6 +473,53 @@ window.BFAI_DEALS = [
     description: "Automate social publishing across 13 platforms with AI content creation, repurposing and MCP integration. 120 reviews.",
     originalPrice: 99, dealPrice: 69, per: "once", discountLabel: "30% OFF", discountPct: 30,
     cta: "https://appsumo.com/products/robinreach/", source: "AppSumo", sourceUrl: AS, checkedOn: "17 Nov", ends: "18 Nov"
+  },
+
+  /* ---- From the three submitted crawl targets (checked 18 Nov) ---- */
+  {
+    id: "boostspace-agentos", name: "Boost.space AgentOS", vendor: "AppSumo", category: "AI Tools", model: "lifetime",
+    tagline: "Manage AI agents across 1,400+ models.",
+    description: "Role-based access, 1,400+ AI models, 21B data records and value tracking. Early-access lifetime price now live on the BF hub.",
+    originalPrice: 299, dealPrice: 89, per: "once", discountLabel: "70% OFF", discountPct: 70,
+    cta: "https://appsumo.com/products/boostspaceagents/", source: "AppSumo", sourceUrl: AS, checkedOn: "18 Nov", ends: "2 Dec"
+  },
+  {
+    id: "vistacreate", name: "VistaCreate", vendor: "AppSumo", category: "Software", model: "lifetime",
+    tagline: "AI-assisted design for small business.",
+    description: "Social posts, ads, product listings and print materials with AI. 370 reviews. Reference list price $399.",
+    originalPrice: 399, dealPrice: 109, per: "once", discountLabel: "73% OFF", discountPct: 73,
+    cta: "https://appsumo.com/products/vistacreate/", source: "AppSumo", sourceUrl: AS, checkedOn: "18 Nov", ends: "2 Dec"
+  },
+  {
+    id: "depositphotos", name: "DepositPhotos", vendor: "AppSumo", category: "Software", model: "lifetime",
+    tagline: "Stock library with a generative AI tool.",
+    description: "Millions of royalty-free assets plus generative AI. 559 reviews. Reference list price $300.",
+    originalPrice: 300, dealPrice: 59, per: "once", discountLabel: "80% OFF", discountPct: 80,
+    cta: "https://appsumo.com/products/depositphotos/", source: "AppSumo", sourceUrl: AS, checkedOn: "18 Nov", ends: "2 Dec"
+  },
+  {
+    id: "botsify", name: "Botsify", vendor: "Botsify", category: "AI Tools", model: "lifetime",
+    priceText: "Lifetime from $399",
+    tagline: "AI agents for support and lead gen.",
+    description: "One-time plans: Business $399 (3 agents), Agency $799 (unlimited agents, white-label, voice), Agency Unlimited $999. No reference price published.",
+    originalPrice: 0, dealPrice: 399, per: "once", discountLabel: "LIFETIME", discountPct: 0,
+    cta: "https://botsify.com/black-friday", source: "6amtech", sourceUrl: SXT, checkedOn: "18 Nov", ends: "5 Dec"
+  },
+  {
+    id: "ai-bud-wp", name: "AI Bud WP", vendor: "OttoKit", category: "Software", model: "annual",
+    priceText: "50% off",
+    tagline: "In-dashboard AI for WordPress content and SEO.",
+    description: "OttoKit's roundup lists 50% off with no absolute price printed. Confirm the price on the vendor page before buying.",
+    originalPrice: 0, dealPrice: 0, per: "", discountLabel: "50% OFF", discountPct: 50,
+    cta: "https://ottokit.com/blog/top-black-friday-deals/", source: "OttoKit", sourceUrl: OT, checkedOn: "18 Nov", ends: "rolling"
+  },
+  {
+    id: "ottokit-lifetime", name: "OttoKit", vendor: "OttoKit", category: "Software", model: "lifetime",
+    priceText: "57% off lifetime",
+    tagline: "Automation platform, half off lifetime.",
+    description: "57% off lifetime plans, auto-applied, valid 17 Nov to 5 Dec. The site banner also advertises 63% — check the actual rate at checkout.",
+    originalPrice: 0, dealPrice: 0, per: "", discountLabel: "57% OFF", discountPct: 57,
+    cta: "https://ottokit.com/blog/top-black-friday-deals/", source: "OttoKit", sourceUrl: OT, checkedOn: "18 Nov", ends: "5 Dec"
   }
 ];
 
