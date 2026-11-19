@@ -4,25 +4,33 @@
       "url": "https://appsumo.com/blackfriday",
       "addedAt": "2026-11-18",
       "addedBy": "Ivan",
-      "lastCrawledAt": "2026-11-18",
+      "lastCrawledAt": "2026-11-19",
       "candidates": 10,
-      "note": "AppSumo BFCM hub. Drop 1 prices plus early-access deals. Drops rotate every 48h."
+      "note": "AppSumo BFCM hub. Drop 1 prices rose after 48h; Drop 2 (AI Agents & Automation) is now live. Drops rotate every other day at 8am CT."
+    },
+    {
+      "url": "https://appsumo.com/collections/black-friday-2026-drop-2",
+      "addedAt": "2026-11-19",
+      "addedBy": "Rory",
+      "lastCrawledAt": "2026-11-19",
+      "candidates": 8,
+      "note": "Drop 2 AI Agents & Automation. Eight AI tools added to the board; lowest price holds 48h then rises."
     },
     {
       "url": "https://ottokit.com/blog/top-black-friday-deals/",
       "addedAt": "2026-11-18",
       "addedBy": "Ivan",
-      "lastCrawledAt": "2026-11-18",
+      "lastCrawledAt": "2026-11-19",
       "candidates": 5,
-      "note": "OttoKit roundup. Percentages only, no absolute prices. Banner 63% conflicts with article 57%. Deals past 900KB of HTML — crawler cap raised to 2MB. Category headings filtered out as noise."
+      "note": "OttoKit roundup. Percentages only. Lifetime headline moved 57% -> 64% on 19 Nov. Category headings filtered as noise."
     },
     {
       "url": "https://6amtech.com/blog/best-ai-black-friday-deals/",
       "addedAt": "2026-11-18",
       "addedBy": "Ivan",
-      "lastCrawledAt": "2026-11-18",
+      "lastCrawledAt": "2026-11-19",
       "candidates": 0,
-      "note": "Low signal: most entries say 'Coming Soon'. Botsify's real prices were added manually. Noise filter now removes the feature-bullet and blog-promotion false positives."
+      "note": "Low signal: most entries say 'Coming Soon'. Botsify's real prices were added manually."
     }
   ]
 }
